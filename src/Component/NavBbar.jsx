@@ -1,12 +1,26 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import logo from "../assets/NatStream_Logo.png";
 
 export default function NavBar() {
   const [isGenreOpen, setIsGenreOpen] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
+  const mobMenu = useRef(null);
+  const closeOpenMenus = (e) => {
+    if (mobileMenu && !mobMenu.current?.contains(e.target)) {
+      setMobileMenu(false);
+      setIsGenreOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", closeOpenMenus);
+    return () => {
+      document.removeEventListener("mousedown", closeOpenMenus);
+    };
+  }, []);
 
   return (
-    <nav className="sticky top-2 w-full h-24 bg-gradient-to-r from-indigo-500 via-black to-indigo-500 text-white flex items-center justify-between md:justify-center md:gap-10 px-6">
+    <nav className="sticky top-0 w-full h-24 bg-gradient-to-r from-indigo-500 via-black to-indigo-500 text-white flex items-center justify-between md:justify-center md:gap-10 px-6">
       <img src={logo} className="w-auto h-10 md:h-16" alt="Nat Stream logo" />
 
       <input
@@ -96,7 +110,10 @@ export default function NavBar() {
       </button>
 
       {mobileMenu && (
-        <div className="absolute top-24 left-0 w-full bg-black bg-opacity-95 flex flex-col items-center py-6 space-y-6 text-2xl font-bold z-20 md:hidden transition-all duration-300">
+        <div
+          ref={mobMenu}
+          className="absolute top-24 left-0 w-full bg-black bg-opacity-95 flex flex-col items-center py-6 space-y-6 text-2xl font-bold z-20 md:hidden transition-all duration-300"
+        >
           <li className="hover:text-indigo-500 cursor-pointer hover:scale-110 transition">
             Home
           </li>
