@@ -1,17 +1,10 @@
 import "./App.css";
-import NavBar from "./Component/NavBbar";
-import AnimationWrapper from "./Common/AminationWrapper";
-import MainSection from "./Component/Main";
-import Footer from "./Component/Footer";
-import Hero from "./Component/Hero";
+import Home from "./Pages/home";
 
 function App() {
   return (
     <div className="scroll-smooth">
-      <NavBar />
-      <Hero />
-      <MainSection />
-      <Footer />
+      <Home />
     </div>
   );
 }
