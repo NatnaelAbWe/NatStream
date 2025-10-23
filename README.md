@@ -132,7 +132,7 @@ const instance = axios.create({
 
 ## 🌐 Live Demo
 
-👉 [Visit NatStream](https://natnaelabwe.github.io/NatStream)
+👉 [Visit NatStream](https://natstreamm.netlify.app/)
 
 ## 💡 Future Improvements
 
