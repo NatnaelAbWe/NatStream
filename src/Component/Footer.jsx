@@ -1,4 +1,5 @@
 import logo from "../assets/NatStream_Logo.png";
+import { SocialIcon } from "react-social-icons";
 
 export default function Footer() {
   return (
@@ -6,6 +7,26 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0">
         <div className="flex flex-col items-center md:items-start text-center md:text-left gap-3">
           <img src={logo} alt="Nat Stream logo" className="h-12 md:h-22" />
+
+          <div className="flex gap-5">
+            <SocialIcon
+              className="border outline-blue-500 rounded-full hover:outline-4"
+              url="www.facebook.com"
+            />
+            <SocialIcon
+              className="border outline-blue-500 rounded-full hover:outline-4"
+              url="www.x.com"
+            />
+            <SocialIcon
+              className="border outline-blue-500 rounded-full hover:outline-4"
+              url="www.instagram.com"
+            />
+            <SocialIcon
+              className="border outline-blue-500 rounded-full hover:outline-4"
+              url="www.twitch.com"
+            />
+          </div>
+
           <p className="text-sm md:text-xl font-bold max-w-xs">
             NatStream is your ultimate movie streaming platform. Discover
             movies, shows, and exclusive content anywhere, anytime.
