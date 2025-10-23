@@ -102,3 +102,55 @@ const instance = axios.create({
   baseURL: "https://api.themoviedb.org/3",
 });
 ````
+
+## 🧰 Scripts
+
+| commands          | Description                  |
+| ----------------- | ---------------------------- |
+| `npm run dev`     | Run development server       |
+| `npm run build`   | Build for production         |
+| `npm run preview` | Preview production build     |
+| `npm run lint`    | Run ESLint for code checking |
+
+## 📸 Preview
+
+### Desktop
+
+![alt text](image-1.png)
+
+![alt text](image-2.png)
+
+![alt text](image-3.png)
+
+## Mobile
+
+![alt text](image-4.png)
+
+![alt text](image-5.png)
+
+![alt text](image-6.png)
+
+## 🌐 Live Demo
+
+👉 [Visit NatStream](https://natnaelabwe.github.io/NatStream)
+
+## 💡 Future Improvements
+
+- 🔐 Add user authentication (Sign In / Sign Up)
+
+- ❤️ Add “My Favorites” and “Watch Later” lists
+
+- 🌎 Implement multi-language support
+
+- 📺 Add real-time streaming preview
+
+## 🧑‍💻 Author
+
+- NatStream by: Natnael Abnew
+
+- 💬 Contributions, ideas, and feedback are welcome!
+
+## 🪪 License
+
+- This project is licensed under the MIT License.
+- You’re free to use, modify, and distribute it for personal and commercial use.
