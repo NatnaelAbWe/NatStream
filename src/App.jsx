@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./App.css";
 import NavBar from "./Component/NavBbar";
 import AnimationWrapper from "./Common/AminationWrapper";
@@ -8,11 +7,12 @@ import Hero from "./Component/Hero";
 
 function App() {
   return (
-    <>
+    <div className="scroll-smooth">
       <NavBar />
       <Hero />
+      <MainSection />
       <Footer />
-    </>
+    </div>
   );
 }
 export default App;
