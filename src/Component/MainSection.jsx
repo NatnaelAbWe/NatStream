@@ -53,11 +53,10 @@ const MainSection = forwardRef(({ title, fetchUrl, isLargeRow }, ref) => {
   };
 
   return (
-    <div
-      ref={ref}
-      className="row bg-gradient-to-r from-indigo-500 via-black to-indigo-500 font-bold text-2xl"
-    >
-      <h1 className="rowtitle">{title}</h1>
+    <div className="row bg-gradient-to-r from-indigo-500 via-black to-indigo-500 font-bold text-2xl ">
+      <h1 className="rowtitle" ref={ref}>
+        {title}
+      </h1>
       <div className="row__posters">
         {movies?.map((movie, index) => (
           <img

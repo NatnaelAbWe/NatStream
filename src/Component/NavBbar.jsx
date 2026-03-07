@@ -5,6 +5,8 @@ export default function NavBar({ sectionRefs, scrollToSection }) {
   const [isGenreOpen, setIsGenreOpen] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
   const mobMenu = useRef(null);
+  const dropdownRef = useRef(null);
+
   const closeOpenMenus = (e) => {
     if (mobileMenu && !mobMenu.current?.contains(e.target)) {
       setMobileMenu(false);
@@ -12,11 +14,20 @@ export default function NavBar({ sectionRefs, scrollToSection }) {
     }
   };
 
+  const handleClickOutside = (event) => {
+    // If click is outside the dropdown
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setIsGenreOpen(false);
+
+      if (mobMenu.current && !mobMenu.current.contains(event.target)) {
+        setMobileMenu(false);
+      }
+    }
+  };
+
   useEffect(() => {
-    document.addEventListener("mousedown", closeOpenMenus);
-    return () => {
-      document.removeEventListener("mousedown", closeOpenMenus);
-    };
+    window.addEventListener("mousedown", handleClickOutside);
+    return () => window.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
@@ -61,7 +72,10 @@ export default function NavBar({ sectionRefs, scrollToSection }) {
           </button>
 
           {isGenreOpen && (
-            <div className="absolute bg-black bg-opacity-90 border border-indigo-500 rounded-lg shadow-lg flex flex-col text-lg w-40">
+            <div
+              className="absolute bg-black bg-opacity-90 border border-indigo-500 rounded-lg shadow-lg flex flex-col text-lg w-40"
+              ref={dropdownRef}
+            >
               {[
                 "Trending",
                 "NetflixOriginal",

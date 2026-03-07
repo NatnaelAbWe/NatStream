@@ -79,3 +79,7 @@
     font-size: 20px;
   }
 }
+
+.rowtitle {
+  scroll-margin-top: 6rem;
+}
