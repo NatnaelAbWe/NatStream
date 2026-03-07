@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import logo from "../assets/NatStream_Logo.png";
 
-export default function NavBar() {
+export default function NavBar({ sectionRefs, scrollToSection }) {
   const [isGenreOpen, setIsGenreOpen] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
   const mobMenu = useRef(null);
@@ -62,8 +62,19 @@ export default function NavBar() {
 
           {isGenreOpen && (
             <div className="absolute bg-black bg-opacity-90 border border-indigo-500 rounded-lg shadow-lg flex flex-col text-lg w-40">
-              {["Action", "Comedy", "Horror", "Sci-Fi"].map((genre) => (
+              {[
+                "Trending",
+                "NetflixOriginal",
+                "Top-Rated",
+                "Action",
+                "Comedy",
+                "Horror",
+                "Romance",
+                "Documentaries",
+                "tvShows",
+              ].map((genre) => (
                 <button
+                  onClick={() => scrollToSection(sectionRefs[genre])}
                   key={genre}
                   className="px-4 py-2 text-white hover:bg-indigo-500 hover:text-black text-left transition"
                 >
