@@ -1,9 +1,9 @@
-import { useState, useEffect, useDebugValue } from "react";
+import { useState, useEffect, forwardRef } from "react";
 import instance from "../utils/axios";
 import movieTrailer from "movie-trailer";
 import YouTube from "react-youtube";
 
-export default function MainSection({ title, fetchUrl, isLargeRow }) {
+const MainSection = forwardRef(({ title, fetchUrl, isLargeRow }, ref) => {
   const [movies, setMovie] = useState([]);
   const [trailerUrl, setTrailerUrl] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -53,7 +53,10 @@ export default function MainSection({ title, fetchUrl, isLargeRow }) {
   };
 
   return (
-    <div className="row bg-gradient-to-r from-indigo-500 via-black to-indigo-500 font-bold text-2xl">
+    <div
+      ref={ref}
+      className="row bg-gradient-to-r from-indigo-500 via-black to-indigo-500 font-bold text-2xl"
+    >
       <h1 className="rowtitle">{title}</h1>
       <div className="row__posters">
         {movies?.map((movie, index) => (
@@ -93,9 +96,12 @@ export default function MainSection({ title, fetchUrl, isLargeRow }) {
           </div>
         </div>
       )}
+
       <div className="text-black">
         <hr />
       </div>
     </div>
   );
-}
+});
+
+export default MainSection;
